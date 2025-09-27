@@ -1,0 +1,29 @@
+{
+	"name": "bgm-mcp",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"types": "wrangler types",
+		"gen-v0-client": "openapi-typescript bgm-openapi/v0.yaml -o src/bgm-v0-client.gen.ts",
+		"gen-v0-zod": "orval --input bgm-openapi/v0.yaml --output src/bgm-v0-zod.gen.ts --client zod",
+		"gen-api-client": "openapi-typescript bgm-openapi/api.yaml -o src/bgm-api-client.gen.ts",
+		"gen-api-zod": "orval --input bgm-openapi/api.yaml --output src/bgm-api-zod.gen.ts --client zod"
+	},
+	"dependencies": {
+		"@hono/mcp": "^0.1.4",
+		"@hono/zod-validator": "^0.7.3",
+		"@modelcontextprotocol/sdk": "1.18.1",
+		"hono": "^4.9.9",
+		"openapi-fetch": "^0.14.0",
+		"zod": "^3.25.76"
+	},
+	"devDependencies": {
+		"openapi-typescript": "^7.9.1",
+		"openapi-typescript-helpers": "^0.0.15",
+		"orval": "^7.12.2",
+		"wrangler": "^4.40.2"
+	}
+}
