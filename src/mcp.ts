@@ -1,8 +1,8 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import createClient from "openapi-fetch";
 
-import { paths as api } from "./bgm-api-client.gen";
-import { paths as v0 } from "./bgm-v0-client.gen";
+import type { paths as api } from "./bgm-api-client.gen";
+import type { paths as v0 } from "./bgm-v0-client.gen";
 import {
   collectCharacterByCharacterIdAndUserIdParams,
   collectPersonByPersonIdAndUserIdParams,
@@ -113,7 +113,7 @@ mcpServer.tool(
       ],
     };
     // return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -127,7 +127,7 @@ mcpServer.tool(
       params: { query: queryParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -139,7 +139,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -151,7 +151,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -163,7 +163,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -175,7 +175,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 /**
@@ -190,7 +190,7 @@ mcpServer.tool(
       params: { query: queryParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -202,7 +202,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 /**
@@ -221,7 +221,7 @@ mcpServer.tool(
       body: bodyParams,
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -233,7 +233,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -245,7 +245,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -257,7 +257,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -269,7 +269,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -281,10 +281,10 @@ mcpServer.tool(
       "/v0/characters/{character_id}/collect",
       {
         params: { path: pathParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 /**
@@ -303,7 +303,7 @@ mcpServer.tool(
       body: bodyParams,
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -315,7 +315,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -327,7 +327,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -339,7 +339,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -351,7 +351,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -363,7 +363,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 /**
@@ -378,7 +378,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool("about-me", "获取本人的用户信息", async () => {
@@ -401,7 +401,7 @@ mcpServer.tool(
       params: { path: pathParams, query: queryParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -415,10 +415,10 @@ mcpServer.tool(
       "/v0/users/{username}/collections/{subject_id}",
       {
         params: { path: pathParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -432,7 +432,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -446,7 +446,7 @@ mcpServer.tool(
       params: { path: pathParams },
     });
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -461,10 +461,10 @@ mcpServer.tool(
       "/v0/users/-/collections/{subject_id}/episodes",
       {
         params: { path: pathParams, query: queryParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -480,10 +480,10 @@ mcpServer.tool(
       {
         params: { path: pathParams },
         body: bodyParams,
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -497,10 +497,10 @@ mcpServer.tool(
       "/v0/users/-/collections/-/episodes/{episode_id}",
       {
         params: { path: pathParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -514,10 +514,10 @@ mcpServer.tool(
       "/v0/users/-/collections/-/episodes/{episode_id}",
       {
         params: { path: pathParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -531,10 +531,10 @@ mcpServer.tool(
       "/v0/users/{username}/collections/-/characters",
       {
         params: { path: pathParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -548,10 +548,10 @@ mcpServer.tool(
       "/v0/users/{username}/collections/-/characters/{character_id}",
       {
         params: { path: pathParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -565,10 +565,10 @@ mcpServer.tool(
       "/v0/users/{username}/collections/-/persons",
       {
         params: { path: pathParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );
 
 mcpServer.tool(
@@ -582,8 +582,8 @@ mcpServer.tool(
       "/v0/users/{username}/collections/-/persons/{person_id}",
       {
         params: { path: pathParams },
-      }
+      },
     );
     return fetchRespWarp(resp);
-  }
+  },
 );

@@ -2,22 +2,22 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { StreamableHTTPTransport } from "@hono/mcp";
 import { zValidator } from "@hono/zod-validator";
-import { sign, jwt } from "hono/jwt";
+import { jwt, sign } from "hono/jwt";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Style } from "hono/css";
 
-import { z } from "zod/v4";
+import { z } from "zod";
 import { env } from "cloudflare:workers";
-import { v0_client, mcpServer } from "./mcp";
+import { mcpServer, v0_client } from "./mcp";
 import { access_token_zod } from "./utils";
 import {
-  globalStyles,
-  container,
-  title,
-  description,
   button,
+  container,
   copyButton,
+  description,
   details,
+  globalStyles,
+  title,
   tokenBox,
   tokenContainer,
 } from "./css";
@@ -28,7 +28,7 @@ app.use(
   cors({
     origin: "*",
     allowMethods: ["POST", "OPTIONS"],
-  })
+  }),
 );
 
 app.use(
@@ -50,7 +50,7 @@ app.use(
         </body>
       </html>
     );
-  })
+  }),
 );
 
 app.get("/", async (c) => {
@@ -72,7 +72,7 @@ app.get("/", async (c) => {
       <a href="/authorize" class={button}>
         开始授权
       </a>
-    </div>
+    </div>,
   );
 });
 
@@ -97,8 +97,8 @@ app.get(
       console.log(await resp.text());
       return c.newResponse(null, 403);
     }
-    const { access_token, expires_in, user_id, ...result } =
-      access_token_zod.parse(await resp.json());
+    const { access_token, expires_in, user_id, ...result } = access_token_zod
+      .parse(await resp.json());
     const now = (Date.now() / 1e3) | 0;
     const token = await sign(
       {
@@ -106,7 +106,7 @@ app.get(
         iss: "bgm-mcp",
         acc: access_token,
       },
-      env.JWT_SECRET
+      env.JWT_SECRET,
     );
     return c.render(
       <div class={tokenContainer}>
@@ -131,9 +131,9 @@ app.get(
           </pre>
           <p>请注意这个 token 的有效期只有 7 天，过期后需要重新授权</p>
         </details>
-      </div>
+      </div>,
     );
-  }
+  },
 );
 
 app.post(
@@ -153,7 +153,7 @@ app.post(
     const transport = new StreamableHTTPTransport();
     await mcpServer.connect(transport);
     return transport.handleRequest(c);
-  }
+  },
 );
 
 app.get("/authorize", async (c) => {

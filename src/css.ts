@@ -1,4 +1,4 @@
-import { css, cx, keyframes, Style } from "hono/css";
+import { css } from "hono/css";
 export const globalStyles = `
   :root {
     --bg-color: #ffffff;

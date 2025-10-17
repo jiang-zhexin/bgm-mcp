@@ -8,3 +8,4 @@ workers_dev = false
 
 [observability]
 enabled = true
+traces.enabled = true

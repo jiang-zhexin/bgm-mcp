@@ -1,7 +1,7 @@
-import { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import { FetchResponse } from "openapi-fetch";
-import { MediaType } from "openapi-typescript-helpers";
-import z from "zod";
+import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
+import type { FetchResponse } from "openapi-fetch";
+import type { MediaType } from "openapi-typescript-helpers";
+import { z } from "zod";
 
 export const access_token_zod = z.object({
   access_token: z.string(),
@@ -15,9 +15,9 @@ export const access_token_zod = z.object({
 export function fetchRespWarp<
   T extends Record<string | number, any>,
   O,
-  M extends MediaType
+  M extends MediaType,
 >(resp: FetchResponse<T, O, M>): CallToolResult | Promise<CallToolResult> {
-  if (resp.response.status === 204)
+  if (resp.response.status === 204) {
     return {
       content: [
         {
@@ -26,6 +26,7 @@ export function fetchRespWarp<
         },
       ],
     };
+  }
   return {
     content: [
       {
